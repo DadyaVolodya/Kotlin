@@ -1,10 +1,9 @@
 plugins {
     kotlin("jvm") version "1.8.20"
-    kotlin("plugin.serialization") version "1.8.20"
     application
 }
 
-group = "org.example"
+group = "mobi.sevenwinds"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -17,8 +16,12 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
     implementation("org.jetbrains.exposed:exposed-dao:0.41.1")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
+    implementation("io.ktor:ktor-server-core:2.3.7")
+    implementation("io.ktor:ktor-server-netty:2.3.7")
     implementation("ch.qos.logback:logback-classic:1.4.7")
-    testImplementation(kotlin("test"))
+    
+    testImplementation("io.rest-assured:rest-assured:5.3.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
 }
 
 tasks.test {
@@ -30,5 +33,5 @@ kotlin {
 }
 
 application {
-    mainClass.set("MainKt")
-} 
+    mainClass.set("mobi.sevenwinds.ApplicationKt")
+}
